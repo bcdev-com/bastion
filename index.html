@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bastion</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>Ⓑ</text></svg>">
+    <link rel='stylesheet' href='bastion.css'>
+    <script type='module' src='bastion.js'></script>
+</head>
+<body>
+<div id='bastion'>
+    <div id='upper'>
+        <h1>Upper / <a href='#ground'>Ground</a> / <a href='#basement'>Basement</a></h1>
+    </div>
+    <div id='ground'>
+        <h1><a href='#upper'>Upper</a> / Ground / <a href='#basement'>Basement</a></h1>
+    </div>
+    <div id='basement'>
+        <h1><a href='#upper'>Upper</a> / <a href='#ground'>Ground</a> / Basement</h1>
+    </div>
+</div>
+<div id='room'></div>
+<div id='rules'>
+    <div id='room-none'>
+        <h2>Free Space</h2>
+    </div>
+    <div id='room-free'>
+        <h2>Free Facility</h2>
+    </div>
+    <div id='room-cramped'>
+        <h2>Cramped Basic Facility</h2>
+        <p>Can be upgraded to Roomy for 500 GP.</p>
+    </div>
+    <div id='room-roomy'>
+        <h2>Roomy Basic Facility</h2>
+        <p>Can be upgraded to Vast for 2000 GP.</p>
+    </div>
+    <div id='room-vast'>
+        <h2>Vast Basic Facility</h2>
+    </div>
+    <div id='room-arcane-study'>
+        <h3>Level 5 Bastion Facility</h3>
+        <p><b>Prerequisite:</b> Ability to use an Arcane Focus as a Spellcasting Focus</p>
+        <p><b>Space:</b> Roomy</p>
+        <p><b>Hirelings:</b> 1</p>
+        <p><b>Order:</b> Craft</p>
+        <p>An Arcane Study is a place of quiet research that contains one or more desks and bookshelves.</p>
+        <p>When you issue the Craft order to this facility, choose one of the following options:</p>
+        <p><b>Craft: Arcane Focus.</b></p>
+        <p>
+            You commission the facility's hireling to craft an Arcane Focus.
+            The work takes 7 days and costs no money.
+            The Arcane Focus remains in your Bastion until you claim it, or you can have it sold for 10 GP.
+        </p>
+        <p><b>Craft: Book.</b></p>
+        <p>    
+            You commission the facility's hireling to craft a blank Book.
+            The work takes 7 days and costs you 10 GP.
+            The Book remains in your Bastion until you claim it, or you can have it sold for 25 GP.
+        </p>
+        <p>The Arcane Study also imparts the following benefit:</p>
+        <p><b>Cast Identify.</b></p>
+        <p>    After spending a Long Rest in your Bastion, you can cast Identify once within the next 7 days without expending a spell slot or using Material components.</p>
+    </div>
+    <div id='room-smithy'>
+        <h2>Smithy</h2>
+    </div>
+    <div id='room-garden'>
+        <h2>Garden</h2>
+    </div>
+    <div id='room-barracks'>
+        <h2>Barracks</h2>
+    </div>
+    <div id='room-sanctuary'>
+        <h2>Sanctuary</h2>
+    </div>
+    <div id='room-library'>
+        <h2>Library</h2>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,308 @@
+{
+    "width": 30,
+    "height": 24,
+    "floors":[
+        {
+            "name": "Basement",
+            "grid": [
+"##############################",
+"##############################",
+"##############################",
+"##############################",
+"##############################",
+"##############################",
+"##############################",
+"##############################",
+"##############################",
+"##############################",
+"##############################",
+"##############################",
+"##############################",
+"##############################",
+"############:::::#############",
+"######mm##nn:#################",
+"######mmmmoo:#################",
+"######mmmmoo:#################",
+"######mmmmmm:#################",
+"##############################",
+"##############################",
+"##############################",
+"##############################",
+"##############################"
+            ]
+        },
+        {
+            "name": "Ground",
+            "grid": [
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+"~~~~~~~~xxxxxx~~~~~~~~~~~~~~~~",
+"~~~~~~~~xxxxxx~~~~~~~~~~~~~~~~",
+"~~~~~w~~xxxxxx~~~~~~~~~~~~~~~~",
+"'wwwww''xxxxxx''''''''''''''''",
+"'wwwww''xxxxxx''''''''yyyyyy''",
+"'wwwww''xxxxxx''''''''yyyyyy''",
+"''kk''''''kk''''''''''yyyyyy''",
+"''kkkkkkkkkkkkkkkkk'''yyyyyy''",
+"'''kkkkkkkkkkkkkkkkk''yyyyyy''",
+"''''''''''''''aa''kkk'yyyyyy''",
+"''''''''''''''aa'''kkkkkkkkkkk",
+"''''''''bbbbaaaaaacckkkkkkkkkk",
+"''''''''bbbbaaaaaadd''''kk''''",
+"''''''''bbbb^^^e=.ddff''kk''''",
+"''''''ggbbbb^^^ee.ffff''kk''''",
+"''''''gggggg^^^...ffff''kk''''",
+"''''''gggggghhhh>>ffff''kk''''",
+"''''''ggiiiihhhhjjjjff'kkk''''",
+"''''''kkiiiihhhhjjjjkkkkkk''''",
+"''''''kkkkkkhhhhkkkkkkkkk'''''",
+"''''''kkkkkkkllkkkkkkk''''''''",
+"''''''''''kkkkkkkk''''''''''''",
+"'''''''''''''kk'''''''''''''''"
+            ]
+        },
+        {
+            "name": "Upper",
+            "grid": [
+"                              ",
+"                              ",
+"                              ",
+"                              ",
+"                              ",
+"                              ",
+"                              ",
+"                              ",
+"                              ",
+"                              ",
+"                              ",
+"                              ",
+"          ;;;;;;pppp          ",
+"          ;,,,,,pppp          ",
+"      qqqqq,zzz,pppprr        ",
+"      qqqqq,zzz,uurrrr        ",
+"      ssqqq,zzz,,,rrrr        ",
+"      ssqqq,,,,,<<rrrr        ",
+"      tt    vvvv    rr        ",
+"            vvvv              ",
+"            vvvv              ",
+"            vvvv              ",
+"                              ",
+"                              "
+            ]
+        }
+    ],
+    "locations": {
+        " ": {
+            "name": "Air",
+            "type": "none",
+            "color": "lightskyblue"
+        },
+        "~": {
+            "name": "River",
+            "type": "none",
+            "color": "lightseagreen"
+        },
+        "'": {
+            "name": "Grass",
+            "type": "none",
+            "color": "olive"
+        },
+        "#": {
+            "name": "Dirt",
+            "type": "none",
+            "color": "black"
+        },        
+        ".": {
+            "name": "Main Corridor",
+            "type": "free",
+            "color": "gray"
+        },
+        ",": {
+            "name": "Upper Corridor",
+            "type": "free",
+            "color": "gray"
+        },
+        ":": {
+            "name": "Tunnel",
+            "type": "free",
+            "color": "gray"
+        },
+        ";": {
+            "name": "Secret Passage",
+            "type": "free",
+            "color": "gray"
+        },
+        "^": {
+            "name": "Atrium",
+            "type": "free",
+            "color": "gray"
+        },
+        "=": {
+            "name": "Hidden Ladder",
+            "type": "free",
+            "color": "gray"
+        },
+        ">": {
+            "name": "Stairway Up",
+            "type": "free",
+            "color": "gray"
+        },
+        "<": {
+            "name": "Stairway Down",
+            "type": "free",
+            "color": "gray"
+        },
+        "a": {
+            "name": "Dormitory",
+            "type": "barracks",
+            "owner": "Arth",
+            "color": "blue"
+        },
+        "b": {
+            "name": "Dining Room",
+            "type": "roomy",
+            "owner": "Leocor",
+            "color": "green"
+        },
+        "c": {
+            "name": "Leocor's Washroom",
+            "type": "roomy",
+            "owner": "Shouka",
+            "color": "red"
+        },
+        "d": {
+            "name": "Leocor's Bedroom",
+            "color": "green",
+            "owner": "Leocor",
+            "type": "cramped"
+        },
+        "e": {
+            "name": "Lower Public Washroom",
+            "type": "roomy",
+            "owner": "Shouka",
+            "color": "red"
+        },
+        "f": {
+            "name": "Sanctuary",
+            "type": "sanctuary",
+            "owner": "Leocor",
+            "color": "green"
+        },
+        "g": {
+            "name": "Kitchen",
+            "type": "roomy",
+            "owner": "Arth",
+            "color": "blue"
+        },
+        "h": {
+            "name": "Parlour",
+            "type": "roomy",
+            "owner": "Shared",
+            "color": "gray"
+        },
+        "i": {
+            "name": "Cooking Herb Garden",
+            "type": "garden",
+            "owner": "Arth",
+            "color": "blue"
+        },
+        "j": {
+            "name": "Magic Herb Garden",
+            "type": "garden",
+            "owner": "Arth",
+            "color": "blue"
+        },
+        "k": {
+            "name": "Flagstone",
+            "type": "free",
+            "color": "brown"
+        },
+        "l": {
+            "name": "Porch",
+            "type": "free",
+            "color": "gray"
+        },
+        "m": {
+            "name": "Poison Garden",
+            "type": "garden",
+            "owner": "Arth",
+            "color": "blue"
+        },
+        "n": {
+            "name": "Arth's Washroom",
+            "type": "roomy",
+            "owner": "Shouka",
+            "color": "red"
+        },
+        "o": {
+            "name": "Arth's Bedroom",
+            "type": "cramped",
+            "owner": "Arth",
+            "color": "blue"
+        },
+        "p": {
+            "name": "Roof Patio",
+            "type": "roomy",
+            "owner": "Shared",
+            "color": "gold"
+        },
+        "q": {
+            "name": "Arcane Study",
+            "type": "arcane-study",
+            "owner": "Shouka",
+            "color": "red"
+        },
+        "r": {
+            "name": "Library",
+            "type": "library",
+            "owner": "Leocor",
+            "color": "green"
+        },
+        "s": {
+            "name": "Shouka's Bedroom",
+            "type": "cramped",
+            "owner": "Shouka",
+            "color": "red"
+        },
+        "t": {
+            "name": "Shouka's Washroom",
+            "type": "roomy",
+            "owner": "Shouka",
+            "color": "red"
+        },
+        "u": {
+            "name": "Upper Public Washroom",
+            "type": "roomy",
+            "owner": "Shouka",
+            "color": "red"
+        },
+        "v": {
+            "name": "Office",
+            "type": "roomy",
+            "owner": "Shared",
+            "color": "gold"
+        },
+        "w": {
+            "name": "Smithy",
+            "type": "smithy",
+            "owner": "Shouka",
+            "color": "red"
+        },
+        "x": {
+            "name": "Boathouse",
+            "type": "vast",
+            "owner": "Shared",
+            "color": "gold"
+        },
+        "y": {
+            "name": "Stable",
+            "type": "vast",
+            "owner": "Shared",
+            "color": "gold"
+        },
+        "z": {
+            "name": "Upper Atrium",
+            "type": "free",
+            "color": "gray"
+        }
+    }
+}
