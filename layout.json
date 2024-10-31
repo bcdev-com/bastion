@@ -1,8 +1,10 @@
 {
     "width": 30,
     "height": 24,
+    "defaultFloor": "ground",
     "floors":[
         {
+            "id": "basement",
             "name": "Basement",
             "grid": [
 "##############################",
@@ -32,6 +34,7 @@
             ]
         },
         {
+            "id": "ground",
             "name": "Ground",
             "grid": [
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
@@ -61,6 +64,7 @@
             ]
         },
         {
+            "id": "upper",
             "name": "Upper",
             "grid": [
 "                              ",
@@ -153,62 +157,62 @@
         },
         "a": {
             "name": "Dormitory",
-            "type": "barracks",
-            "owner": "Arth",
+            "type": "roomy",
+            "builder": "Arth",
             "color": "blue"
         },
         "b": {
             "name": "Dining Room",
             "type": "roomy",
-            "owner": "Leocor",
+            "builder": "Leocor",
             "color": "green"
         },
         "c": {
             "name": "Leocor's Washroom",
             "type": "roomy",
-            "owner": "Shouka",
+            "builder": "Shouka",
             "color": "red"
         },
         "d": {
             "name": "Leocor's Bedroom",
             "color": "green",
-            "owner": "Leocor",
+            "builder": "Leocor",
             "type": "cramped"
         },
         "e": {
             "name": "Lower Public Washroom",
             "type": "roomy",
-            "owner": "Shouka",
+            "builder": "Shouka",
             "color": "red"
         },
         "f": {
             "name": "Sanctuary",
             "type": "sanctuary",
-            "owner": "Leocor",
+            "builder": "Leocor",
             "color": "green"
         },
         "g": {
             "name": "Kitchen",
-            "type": "roomy",
-            "owner": "Arth",
+            "type": "kitchen",
+            "builder": "Arth",
             "color": "blue"
         },
         "h": {
             "name": "Parlour",
             "type": "roomy",
-            "owner": "Shared",
+            "builder": "Shared",
             "color": "gray"
         },
         "i": {
             "name": "Cooking Herb Garden",
             "type": "garden",
-            "owner": "Arth",
+            "builder": "Arth",
             "color": "blue"
         },
         "j": {
             "name": "Magic Herb Garden",
             "type": "garden",
-            "owner": "Arth",
+            "builder": "Arth",
             "color": "blue"
         },
         "k": {
@@ -224,79 +228,79 @@
         "m": {
             "name": "Poison Garden",
             "type": "garden",
-            "owner": "Arth",
+            "builder": "Arth",
             "color": "blue"
         },
         "n": {
             "name": "Arth's Washroom",
             "type": "roomy",
-            "owner": "Shouka",
+            "builder": "Shouka",
             "color": "red"
         },
         "o": {
             "name": "Arth's Bedroom",
             "type": "cramped",
-            "owner": "Arth",
+            "builder": "Arth",
             "color": "blue"
         },
         "p": {
             "name": "Roof Patio",
             "type": "roomy",
-            "owner": "Shared",
+            "builder": "Shared",
             "color": "gold"
         },
         "q": {
             "name": "Arcane Study",
             "type": "arcane-study",
-            "owner": "Shouka",
+            "builder": "Shouka",
             "color": "red"
         },
         "r": {
             "name": "Library",
             "type": "library",
-            "owner": "Leocor",
+            "builder": "Leocor",
             "color": "green"
         },
         "s": {
             "name": "Shouka's Bedroom",
             "type": "cramped",
-            "owner": "Shouka",
+            "builder": "Shouka",
             "color": "red"
         },
         "t": {
             "name": "Shouka's Washroom",
             "type": "roomy",
-            "owner": "Shouka",
+            "builder": "Shouka",
             "color": "red"
         },
         "u": {
             "name": "Upper Public Washroom",
             "type": "roomy",
-            "owner": "Shouka",
+            "builder": "Shouka",
             "color": "red"
         },
         "v": {
             "name": "Office",
             "type": "roomy",
-            "owner": "Shared",
+            "builder": "Golden Vault",
             "color": "gold"
         },
         "w": {
             "name": "Smithy",
             "type": "smithy",
-            "owner": "Shouka",
+            "builder": "Shouka",
             "color": "red"
         },
         "x": {
             "name": "Boathouse",
             "type": "vast",
-            "owner": "Shared",
+            "builder": "Golden Vault",
             "color": "gold"
         },
         "y": {
             "name": "Stable",
             "type": "vast",
-            "owner": "Shared",
+            "builder": "Golden Vault",
             "color": "gold"
         },
         "z": {
