@@ -1,4 +1,5 @@
 {
+    "name": "Sadly Unnamed Bastion",
     "width": 30,
     "height": 24,
     "defaultFloor": "ground",
@@ -44,23 +45,23 @@
 "'wwwww''xxxxxx''''''''''''''''",
 "'wwwww''xxxxxx''''''''yyyyyy''",
 "'wwwww''xxxxxx''''''''yyyyyy''",
-"''kk''''''kk''''''''''yyyyyy''",
-"''kkkkkkkkkkkkkkkkk'''yyyyyy''",
-"'''kkkkkkkkkkkkkkkkk''yyyyyy''",
-"''''''''''''''aa''kkk'yyyyyy''",
-"''''''''''''''aa'''kkkkkkkkkkk",
-"''''''''bbbbaaaaaacckkkkkkkkkk",
-"''''''''bbbbaaaaaadd''''kk''''",
-"''''''''bbbb^^^e=.ddff''kk''''",
-"''''''ggbbbb^^^ee.ffff''kk''''",
-"''''''gggggg^^^...ffff''kk''''",
-"''''''gggggghhhh>>ffff''kk''''",
-"''''''ggiiiihhhhjjjjff'kkk''''",
-"''''''kkiiiihhhhjjjjkkkkkk''''",
-"''''''kkkkkkhhhhkkkkkkkkk'''''",
-"''''''kkkkkkkllkkkkkkk''''''''",
-"''''''''''kkkkkkkk''''''''''''",
-"'''''''''''''kk'''''''''''''''"
+"''--''''''--''''''''''yyyyyy''",
+"''-----------------'''yyyyyy''",
+"'''-----------------''yyyyyy''",
+"''''''''''''''aa''---'yyyyyy''",
+"''''''''''''''aa'''-----------",
+"''''''''bbbbaaaaaacc----------",
+"''''''''bbbbaaaaaadd''''--''''",
+"''''''''bbbb^^^e=.ddff''--''''",
+"''''''ggbbbb^^^ee.ffff''--''''",
+"''''''gggggg^^^...ffff''--''''",
+"''''''gggggghhhh>>ffff''--''''",
+"''''''ggiiiihhhhjjjjff'---''''",
+"''''''--iiiihhhhjjjj------''''",
+"''''''------hhhh---------'''''",
+"''''''-------ll-------''''''''",
+"''''''''''--------''''''''''''",
+"'''''''''''''--'''''''''''''''"
             ]
         },
         {
@@ -155,6 +156,10 @@
             "type": "free",
             "color": "gray"
         },
+        "-": {
+          "name": "Flagstone",
+          "color": "brown"
+        },
         "a": {
             "name": "Dormitory",
             "type": "roomy",
@@ -214,11 +219,6 @@
             "type": "garden",
             "builder": "Arth",
             "color": "blue"
-        },
-        "k": {
-            "name": "Flagstone",
-            "type": "free",
-            "color": "brown"
         },
         "l": {
             "name": "Porch",

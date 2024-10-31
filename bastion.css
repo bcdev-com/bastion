@@ -2,8 +2,15 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+h1, h2, h3 {
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    line-height: 120%;
+}
 h1 {
     font-size: 2rem;
+    margin-bottom: 0.5rem;
 }
 h2 { 
     font-size: 1.5rem; 
@@ -11,17 +18,18 @@ h2 {
 h3 { 
     font-size: 1rem;
 }
-h1, h2, h3 {
-    font-weight: bold;
-}
 a, a:visited, a:active {
     text-decoration: underline;
     color: navy;
 }
+p {
+    padding: 0;
+    margin: 0 0 0.5rem 0;
+}
 
 #bastion {
     position: relative;
-    width: 96vmin;
+    width: 90vmin;
     height: 72vmin;
 }
 #bastion>div {
@@ -31,36 +39,44 @@ a, a:visited, a:active {
     margin-top: 1rem;
 }
 #rules {
+    width: 90vmin;
+    padding: 0.25rem;
+    margin-top: 1rem;
+    background: lightgray;
+    border: 1px solid black;
+}
+#rules-list {
     display: none;
 }
-#level-select {
+#floor-select {
     width: fit-content;
     font-size: 1.5rem;
     line-height: 100%;
     padding: 0.25rem;
 }
-#level-select>span {
+#floor-select>span {
     padding: 0 0.5rem;
     margin: 0 0.5rem;
     border: 1px solid black;
     cursor: pointer;
 }
-#level-select>span.active {
+#floor-select>span.active {
     background-color: black;
     color: white;
 }
 
-.floorplan {
+.floor {
     border-collapse: separate;
     border-spacing: 0px;
     background-color: black;
 }
-.floorplan td {
+.floor td {
     width: 3vmin;
     height: 3vmin;
     border-style: solid;
     border-width: 1px;
 }
+
 .decoration-selected {
     background-image: url(./decorations/selected.svg);
 }
