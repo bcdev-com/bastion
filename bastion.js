@@ -1,12 +1,12 @@
-// TODO: set cell sizes from layout
-// Doors and windows, furnishings
+// TODO: Set cell sizes from layout
+//       Doors and windows, furnishings
 
 const bastion = await (await fetch('./bastion.json')).json();
-document.getElementById('bastion-name').innerText = bastion.name
-
 const roomDetails = document.getElementById('room-details');
+const rulesList = document.getElementById('rules-list').content;
 let selectedRoom = '';
 let clickedRoom = '';
+
 function SelectRoom(roomKey, click = false) {
     if (click) {
         if (clickedRoom === roomKey) roomKey = '';
@@ -23,11 +23,21 @@ function SelectRoom(roomKey, click = false) {
     }
     if (roomKey) {
         const loc = bastion.locations[roomKey];
-        const owner = loc.builder ? `<h3>Builder: ${loc.builder}</h3>` : '';
-        const r = loc.type ? document.getElementById('room-' + loc.type) : false;
+        const r = loc.type ? rulesList.querySelector('#room-' + loc.type) : false;
+        const owner = loc.builder ? `<div><b>Builder:</b> ${loc.builder}</div>` : '';
+        const size = r ? `<div><b>Size:</b> ${loc.cells.length} squares</div>` : '';
         const rules = r ? `<div id='rules'><h2>Rules</h2><p>${r.innerHTML}</p></div>` : '';
-        const size = r ? `<h3>Size: ${loc.cells.length} squares</h3>` : '';
-        roomDetails.innerHTML = `<h2>${loc.name}</h2>${size}${owner}${rules}`;
+        let desc = '';
+        if (loc.description) {
+            for(const d of loc.description) desc += `<p>${d}</p>`;
+        }
+        let hirelings = '';
+        if (loc.hirelings) {
+            hirelings += '<h3>Hirelings:</h3><ul>';
+            for(const h of loc.hirelings) hirelings += `<li>${h}</li>`;
+            hirelings += '</ul>';
+        }
+        roomDetails.innerHTML = `<h2>${loc.name}</h2>${desc}${size}${owner}${hirelings}${rules}`;
         for(const cell of loc.cells) 
             cell.classList.add('decoration-selected');
         selectedRoom = roomKey;
@@ -105,6 +115,7 @@ function RenderFloor(floor, bastionElement, navElement) {
     }
 }
 
+document.getElementById('bastion-name').innerText = document.title = bastion.name
 const b = document.getElementById('bastion');
 const s = document.getElementById('floor-select');
 for(const f of bastion.floors) RenderFloor(f, b, s);

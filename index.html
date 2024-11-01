@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bastion</title>
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>Ⓑ</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='white'><text y='.9em' font-size='90'>Ⓑ</text></svg>">
     <link rel='stylesheet' href='bastion.css'>
     <script type='module' src='bastion.js'></script>
 </head>
@@ -16,7 +16,7 @@
     <nav id='floor-select'></nav>
     <div id='bastion'></div>
     <div id='room-details'></div>
-    <div id='rules-list'>
+    <template id='rules-list'>
         <div id='room-free'>
             <h3>Free Facility</h3>
         </div>
@@ -42,7 +42,7 @@
             </div>
             <p>House rules need to be written. Produces rations with mild positive effect.  Also can be sold for GP.</p>
         </div>
-        <!-- following imported from DNDBeyond -->
+        <!-- start of content imported from DNDBeyond -->
         <div id="room-arcane-study">
             <h3>Arcane Study</h3>
             <p><em>Level 5 Bastion Facility</em></p>
@@ -1217,7 +1217,8 @@
                 spending 2,000 GP. If you do so, the Workshop gains two additional hirelings and three additional
                 Artisan’s Tools (chosen from the list above).</p>
         </div>
-    </div>
+        <!-- end of content imported from DNDBeyond -->
+    </template>
 </body>
 
 </html>
