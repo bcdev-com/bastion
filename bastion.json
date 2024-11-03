@@ -22,12 +22,12 @@
 "##############################",
 "##############################",
 "##############################",
-"############:::::#############",
-"######mm##nn:#################",
+"###########n:::::#############",
+"######//###n:#################",
 "######mmmmoo:#################",
 "######mmmmoo:#################",
-"######mmmmmm:#################",
-"##############################",
+"########mmmm:#################",
+"########mmmm:#################",
 "##############################",
 "##############################",
 "##############################",
@@ -98,22 +98,18 @@
     "locations": {
         " ": {
             "name": "Air",
-            "type": "none",
             "color": "lightskyblue"
         },
         "~": {
             "name": "River",
-            "type": "none",
             "color": "lightseagreen"
         },
         "'": {
             "name": "Grass",
-            "type": "none",
             "color": "olive"
         },
         "#": {
             "name": "Dirt",
-            "type": "none",
             "color": "black"
         },        
         ".": {
@@ -135,6 +131,11 @@
             "name": "Secret Passage",
             "type": "free",
             "color": "gray"
+        },
+        "/": {
+          "name": "Lower Entrance",
+          "type": "free",
+          "color": "gray"
         },
         "^": {
             "name": "Atrium",
@@ -299,6 +300,10 @@
             "hirelings": [
               "<b>Glint Forgehand:</b> Svirfneblin, journeyman smith by their standards, master by human standards, from Little Lockford, couldn't go back to boring job after the Tixy affair, came looking for us.",
               "<b>Tobias Beauchamps:</b> human teen, former apprentice smith in Fireshear, refugee with family."
+            ],
+            "decorations": [
+              {"x": 4, "y": 0, "decoration": "waterpump"},
+              {"x": 1, "y": 3, "decoration": "door-north-south-double"}
             ],
             "color": "red"
         },

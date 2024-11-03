@@ -1,6 +1,8 @@
 // TODO: Set cell sizes from layout
 //       Doors and windows, furnishings
 
+const cellSize = 3;
+
 const bastion = await (await fetch('./bastion.json')).json();
 const roomDetails = document.getElementById('room-details');
 const rulesList = document.getElementById('rules-list').content;
@@ -18,7 +20,7 @@ function SelectRoom(roomKey, click = false) {
     if (selectedRoom) {
         roomDetails.innerHTML = '';
         for(const cell of bastion.locations[selectedRoom].cells) 
-            cell.classList.remove('decoration-selected')
+            cell.classList.remove('cell-selected')
         selectedRoom = '';
     }
     if (roomKey) {
@@ -39,7 +41,7 @@ function SelectRoom(roomKey, click = false) {
         }
         roomDetails.innerHTML = `<h2>${loc.name}</h2>${desc}${size}${owner}${hirelings}${rules}`;
         for(const cell of loc.cells) 
-            cell.classList.add('decoration-selected');
+            cell.classList.add('cell-selected');
         selectedRoom = roomKey;
     }
 }
@@ -90,6 +92,11 @@ function RenderFloor(floor, bastionElement, navElement) {
             const key = GetKey(floor, row, col);
             td.dataset.location = key;
             const loc = bastion.locations[key];
+            if (loc.type) {
+                if (loc.floor && loc.floor !== floor.id)
+                    console.error(`Location ${loc.name} is used on both floor ${loc.floor} and ${floor.id}`);
+                loc.floor = floor.id;
+            }
             if (!loc.cells) loc.cells = [];
             loc.cells.push(td);
             if (!loc) {
@@ -98,15 +105,28 @@ function RenderFloor(floor, bastionElement, navElement) {
             }
             td.title = loc.name;
             td.style.backgroundColor = `color-mix(in srgb, ${loc.color}, white)`;
-            td.style.borderColor = loc.color
-            if (GetKey(floor, row - 1, col) === key) 
-                td.style.borderTopStyle = 'dotted';
-            if (GetKey(floor, row, col + 1) === key) 
-                td.style.borderRightStyle = 'dotted';
-            if (GetKey(floor, row + 1, col) === key) 
-                td.style.borderBottomStyle = 'dotted';
-            if (GetKey(floor, row, col - 1) === key) 
-                td.style.borderLeftStyle = 'dotted';
+            if (loc.type) {
+                td.style.borderColor = loc.color
+                if (GetKey(floor, row - 1, col) === key) 
+                    td.style.borderTopStyle = 'dotted';
+                if (GetKey(floor, row, col + 1) === key) 
+                    td.style.borderRightStyle = 'dotted';
+                if (GetKey(floor, row + 1, col) === key) 
+                    td.style.borderBottomStyle = 'dotted';
+                if (GetKey(floor, row, col - 1) === key) 
+                    td.style.borderLeftStyle = 'dotted';
+                if (!loc.boundingBox) loc.boundingBox = {
+                    startRow: Number.MAX_SAFE_INTEGER, 
+                    startCol: Number.MAX_SAFE_INTEGER, 
+                    endRow: -1, endCol: -1
+                };
+                loc.boundingBox.startRow = Math.min(loc.boundingBox.startRow, row);
+                loc.boundingBox.startCol = Math.min(loc.boundingBox.startCol, col);
+                loc.boundingBox.endRow = Math.max(loc.boundingBox.endRow, row);
+                loc.boundingBox.endCol = Math.max(loc.boundingBox.endCol, col);
+            } else {
+                td.style.borderStyle = 'none';
+            }
             td.addEventListener('click', OnClick);
             td.addEventListener('mouseenter', OnEnter);
             td.addEventListener('mouseleave', OnLeave);
@@ -120,3 +140,16 @@ const b = document.getElementById('bastion');
 const s = document.getElementById('floor-select');
 for(const f of bastion.floors) RenderFloor(f, b, s);
 SelectFloor(bastion.defaultFloor);
+for(const locName in bastion.locations) {
+    const loc = bastion.locations[locName];
+    if (loc.type && loc.decorations) {
+        for(const d of loc.decorations) {
+            console.log(loc.name, JSON.stringify(loc.boundingBox), d);
+            const decoration = document.createElement('div');
+            decoration.className = `decoration-${d.decoration}`;
+            decoration.style.left = `${(loc.boundingBox.startCol + d.x) * cellSize}vmin`;
+            decoration.style.top = `${(loc.boundingBox.startRow + d.y) * cellSize}vmin`;
+            document.getElementById(loc.floor).appendChild(decoration);
+        }
+    }
+}

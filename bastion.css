@@ -37,6 +37,8 @@ ul {
 }
 #bastion>div {
     position: absolute;
+    width: 90vmin;
+    height: 72vmin;
 }
 #room-details {
     margin-top: 1rem;
@@ -80,6 +82,18 @@ ul {
     border-width: 1px;
 }
 
-.decoration-selected {
-    background-image: url(./decorations/selected.svg);
+.cell-selected {
+    background-image: url(./assets/selected.svg);
+}
+.decoration-waterpump {
+    position: absolute;
+    width: 3vmin;
+    height: 3vmin;
+    background-image: url(./assets/waterpump.svg);
+}
+.decoration-door-north-south-double {
+    position: absolute;
+    width: 6vmin;
+    height: 6vmin;
+    background-image: url(./assets/door-north-south-double.svg);
 }
