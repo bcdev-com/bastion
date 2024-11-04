@@ -1,11 +1,15 @@
 // TODO: Set cell sizes from layout
-//       Doors and windows, furnishings
-
-const cellSize = 3;
+//  Hireling pictures
 
 const bastion = await (await fetch('./bastion.json')).json();
+const cellSize = 3;
+document.documentElement.style.setProperty('--cell-size', `${cellSize}vmin`);
+document.documentElement.style.setProperty('--layout-width', `${cellSize * bastion.width}vmin`);
+document.documentElement.style.setProperty('--layout-height', `${cellSize * bastion.height}vmin`);
+
 const roomDetails = document.getElementById('room-details');
 const rulesList = document.getElementById('rules-list').content;
+const decorationsList = document.getElementById('decorations-list').content;
 let selectedRoom = '';
 let clickedRoom = '';
 
@@ -144,12 +148,18 @@ for(const locName in bastion.locations) {
     const loc = bastion.locations[locName];
     if (loc.type && loc.decorations) {
         for(const d of loc.decorations) {
-            console.log(loc.name, JSON.stringify(loc.boundingBox), d);
-            const decoration = document.createElement('div');
-            decoration.className = `decoration-${d.decoration}`;
-            decoration.style.left = `${(loc.boundingBox.startCol + d.x) * cellSize}vmin`;
-            decoration.style.top = `${(loc.boundingBox.startRow + d.y) * cellSize}vmin`;
-            document.getElementById(loc.floor).appendChild(decoration);
+            const n = decorationsList.getElementById(`decoration-${d.name}`);
+            if (n) {
+                const decoration = n.cloneNode(true);
+                decoration.classList.add('decoration');
+                decoration.style.left = `${(loc.boundingBox.startCol + d.x) * cellSize}vmin`;
+                decoration.style.top = `${(loc.boundingBox.startRow + d.y) * cellSize}vmin`;
+                decoration.style.width = `${d.w * cellSize}vmin`;
+                decoration.style.height = `${d.h * cellSize}vmin`;
+                document.getElementById(loc.floor).appendChild(decoration);
+            } else {
+                console.log(`no decoration named ${d.name} found`);
+            }
         }
     }
 }

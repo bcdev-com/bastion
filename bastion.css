@@ -1,3 +1,8 @@
+:root {
+    --cell-size: 2vmin;
+    --layout-width: 60vmin;
+    --layout-height: 48vmin;
+}
 *, *::before, *::after {
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -32,19 +37,19 @@ ul {
 
 #bastion {
     position: relative;
-    width: 90vmin;
-    height: 72vmin;
+    width: var(--layout-width);
+    height: var(--layout-height);
 }
 #bastion>div {
     position: absolute;
-    width: 90vmin;
-    height: 72vmin;
+    width: var(--layout-width);
+    height: var(--layout-height);
 }
 #room-details {
     margin-top: 1rem;
 }
 #rules {
-    width: 90vmin;
+    width: var(--layout-width);
     padding: 0.25rem;
     margin-top: 1rem;
     background: lightgray;
@@ -76,8 +81,8 @@ ul {
     background-color: black;
 }
 .floor td {
-    width: 3vmin;
-    height: 3vmin;
+    width: var(--cell-size);
+    height: var(--cell-size);
     border-style: solid;
     border-width: 1px;
 }
@@ -85,15 +90,13 @@ ul {
 .cell-selected {
     background-image: url(./assets/selected.svg);
 }
-.decoration-waterpump {
+.decoration {
     position: absolute;
-    width: 3vmin;
-    height: 3vmin;
-    background-image: url(./assets/waterpump.svg);
+    pointer-events: none;
 }
-.decoration-door-north-south-double {
-    position: absolute;
-    width: 6vmin;
-    height: 6vmin;
-    background-image: url(./assets/door-north-south-double.svg);
+
+@media print {
+    #bastion-name, #floor-select, #room-details {
+        display: none;
+    }
 }

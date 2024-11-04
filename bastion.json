@@ -1,5 +1,5 @@
 {
-    "name": "Sadly Unnamed Bastion",
+    "name": "Riveredge Estate",
     "width": 30,
     "height": 24,
     "defaultFloor": "ground",
@@ -22,12 +22,12 @@
 "##############################",
 "##############################",
 "##############################",
-"###########n:::::#############",
-"######//###n:#################",
-"######mmmmoo:#################",
-"######mmmmoo:#################",
-"########mmmm:#################",
-"########mmmm:#################",
+"######//###n|::::#############",
+"######//###n|#################",
+"######mmmmoo|#################",
+"######mmmmoo|#################",
+"########mmmm|#################",
+"########mmmm|#################",
 "##############################",
 "##############################",
 "##############################",
@@ -52,7 +52,7 @@
 "''''''''''''''aa'''-----------",
 "''''''''bbbbaaaaaacc----------",
 "''''''''bbbbaaaaaadd''''--''''",
-"''''''''bbbb^^^e=.ddff''--''''",
+"''''''??bbbb^^^e=.ddff''--''''",
 "''''''ggbbbb^^^ee.ffff''--''''",
 "''''''gggggg^^^...ffff''--''''",
 "''''''gggggghhhh>>ffff''--''''",
@@ -115,98 +115,182 @@
         ".": {
             "name": "Main Corridor",
             "type": "free",
+            "decorations": [
+              {"x": 2, "y": 0, "w": 2, "h": 1, "name": "door-ew"},
+              {"x": 2, "y": 2, "w": 2, "h": 1, "name": "door-ew"},
+              {"x": 2, "y": 2, "w": 1, "h": 2, "name": "door-ns"}
+            ],
             "color": "gray"
         },
         ",": {
             "name": "Upper Corridor",
             "type": "free",
+            "decorations": [
+              {"x": 2, "y": 4, "w": 2, "h": 2, "name": "door-ns2"},
+              {"x": 5, "y": 3, "w": 1, "h": 2, "name": "door-ns"},
+              {"x": 6, "y": 3, "w": 2, "h": 1, "name": "door-ew"}
+            ],
+            "color": "gray"
+        },
+        "|": {
+            "name": "Lower Corridor",
+            "type": "free",
+            "decorations": [
+              {"x": 0, "y": 0, "w": 2, "h": 1, "name": "door-ew-secret"}
+            ],
             "color": "gray"
         },
         ":": {
-            "name": "Tunnel",
-            "type": "free",
-            "color": "gray"
-        },
+          "name": "Secret Tunnel",
+          "type": "free",
+          "decorations": [
+            {"x": 3, "y": 0, "w": 1, "h": 1, "name": "trapdoor"}
+          ],
+          "color": "gray"
+      },
         ";": {
             "name": "Secret Passage",
             "type": "free",
+            "decorations": [
+              {"x": 0, "y": 1, "w": 1, "h": 2, "name": "door-ns-secret"},
+              {"x": 5, "y": 0, "w": 2, "h": 1, "name": "door-ew-secret"}
+            ],
             "color": "gray"
         },
         "/": {
-          "name": "Lower Entrance",
+          "name": "False Storeroom",
           "type": "free",
+          "decorations": [
+            {"x": 0, "y": 0, "w": 2, "h": 1, "name": "stairway-ew"},
+            {"x": 0, "y": 1, "w": 1, "h": 2, "name": "door-ns-secret"}
+          ],
+          "color": "gray"
+        },
+        "?": {
+          "name": "Ramp Up/Stairs Down",
+          "type": "free",
+          "decorations": [
+            {"x": 0, "y": 0, "w": 2, "h": 2, "name": "door-ns2"},
+            {"x": 0, "y": 0, "w": 2, "h": 1, "name": "stairway-ew"}
+          ],
           "color": "gray"
         },
         "^": {
             "name": "Atrium",
             "type": "free",
+            "decorations": [
+              {"x": 1, "y": 2, "w": 2, "h": 2, "name": "arch-ns2"},
+              {"x": 2, "y": 2, "w": 2, "h": 1, "name": "arch-ew"}
+            ],
             "color": "gray"
         },
         "=": {
             "name": "Hidden Ladder",
             "type": "free",
+            "decorations": [
+              {"x": 0, "y": 0, "w": 1, "h": 1, "name": "trapdoor"}
+            ],
             "color": "gray"
         },
         ">": {
             "name": "Stairway Up",
             "type": "free",
+            "decorations": [
+              {"x": 0, "y": 0, "w": 2, "h": 1, "name": "stairway-ew"}
+            ],
             "color": "gray"
         },
         "<": {
             "name": "Stairway Down",
             "type": "free",
+            "decorations": [
+              {"x": 0, "y": 0, "w": 2, "h": 1, "name": "stairway-ew"}
+            ],
             "color": "gray"
         },
         "-": {
           "name": "Flagstone",
+          "type": "free",
           "color": "brown"
         },
         "a": {
             "name": "Dormitory",
             "type": "roomy",
             "builder": "Arth",
+            "decorations": [
+              {"x": 2, "y": 3, "w": 1, "h": 2, "name": "arch-ns"}
+            ],
             "color": "blue"
         },
         "b": {
             "name": "Dining Room",
             "type": "roomy",
             "builder": "Leocor",
-            "color": "green"
+            "decorations": [
+              {"x": 1, "y": -1, "w": 2, "h": 2, "name": "door-ns2"},
+              {"x": 2, "y": 3, "w": 1, "h": 2, "name": "door-ns"},
+              {"x": 3, "y": 2, "w": 2, "h": 2, "name": "arch-ew2"}
+            ],
+              "color": "green"
         },
         "c": {
             "name": "Leocor's Washroom",
             "type": "roomy",
             "builder": "Shouka",
+            "decorations": [
+              {"x": 1, "y": 0, "w": 1, "h": 2, "name": "door-ns"}
+            ],
             "color": "red"
         },
         "d": {
             "name": "Leocor's Bedroom",
             "color": "green",
             "builder": "Leocor",
+            "decorations": [
+              {"x": 1, "y": 1, "w": 1, "h": 1, "name": "trapdoor"}
+            ],
             "type": "cramped"
         },
         "e": {
             "name": "Lower Public Washroom",
             "type": "roomy",
             "builder": "Shouka",
+            "decorations": [
+              {"x": 0, "y": 1, "w": 1, "h": 2, "name": "door-ns"}
+            ],
             "color": "red"
         },
         "f": {
             "name": "Sanctuary",
             "type": "sanctuary",
             "builder": "Leocor",
+            "decorations": [
+              {"x": 0, "y": 3, "w": 1, "h": 2, "name": "door-ns"},
+              {"x": 2, "y": 4, "w": 2, "h": 2, "name": "door-ns2"}
+            ],
             "color": "green"
         },
         "g": {
             "name": "Kitchen",
             "type": "kitchen",
             "builder": "Arth",
+            "hirelings": [
+              "<b>Kores Rossouw:</b> human cook, once a pirate who left his seafaring days behind to build a home for his wife and young child in Fireshear, now a refugee with his family."
+            ],
+            "decorations": [
+              {"x": 0, "y": 3, "w": 2, "h": 2, "name": "door-ns2"},
+              {"x": 1, "y": 0, "w": 2, "h": 1, "name": "door-ew"},
+              {"x": 5, "y": 2, "w": 1, "h": 1, "name": "trapdoor"}
+            ],
             "color": "blue"
         },
         "h": {
             "name": "Parlour",
             "type": "roomy",
             "builder": "Shared",
+            "decorations": [
+              {"x": 1, "y": 3, "w": 2, "h": 2, "name": "door-ns2"}
+            ],
             "color": "gray"
         },
         "i": {
@@ -230,24 +314,41 @@
             "name": "Poison Garden",
             "type": "garden",
             "builder": "Arth",
+            "hirelings": [
+              "<b>Nerium Siannodel:</b> elf gardener, a recent retiree who dove headfirst into gardening with her free time, Arth met her while 'dealing with' a couple of con-artists for his first golden vault mission."
+            ],
+            "decorations": [
+              {"x": 5, "y": 3, "w": 2, "h": 1, "name": "arch-ew"}
+            ],
             "color": "blue"
         },
         "n": {
             "name": "Arth's Washroom",
             "type": "roomy",
             "builder": "Shouka",
+            "decorations": [
+              {"x": 0, "y": 1, "w": 2, "h": 1, "name": "door-ew"}
+            ],
             "color": "red"
         },
         "o": {
             "name": "Arth's Bedroom",
             "type": "cramped",
             "builder": "Arth",
+            "decorations": [
+              {"x": 1, "y": 0, "w": 2, "h": 1, "name": "door-ew"},
+              {"x": 1, "y": 1, "w": 1, "h": 1, "name": "trapdoor"}
+            ],
             "color": "blue"
         },
         "p": {
             "name": "Roof Patio",
             "type": "roomy",
-            "builder": "Shared",
+            "builder": "Golden Vault",
+            "decorations": [
+              {"x": 0, "y": 2, "w": 1, "h": 1, "name": "trapdoor"},
+              {"x": 3, "y": 2, "w": 1, "h": 1, "name": "trapdoor"}
+            ],
             "color": "gold"
         },
         "q": {
@@ -257,18 +358,28 @@
             "hirelings": [
               "<b>Cornelius:</b> Silver Dragonborn, retired warlock, secretly works for Golden Vault, probably not as infirm as he appears."
             ],
+            "decorations": [
+              {"x": 4, "y": 1, "w": 2, "h": 2, "name": "door-ew2"},
+              {"x": 1, "y": 1, "w": 1, "h": 2, "name": "door-ns"}
+            ],
             "color": "red"
         },
         "r": {
             "name": "Library",
             "type": "library",
             "builder": "Leocor",
+            "hirelings": [
+              "<b>Fiora Faendal: Leo, along with some others from his order, assisted her in retrieving some ancient tomes stolen by a sorcerer. After the texts were returned, the sorcerer sent some minions to harass the librarian and after some weeks she moved to neverwinter seeking some peace and quiet. Leo approached her and offered her a home at 'insert bastion name here' , promising safety in return for maintaining his newly established library.</b>"
+            ],
             "color": "green"
         },
         "s": {
             "name": "Shouka's Bedroom",
             "type": "cramped",
             "builder": "Shouka",
+            "decorations": [
+              {"x": 0, "y": 1, "w": 1, "h": 2, "name": "door-ns"}
+            ],
             "color": "red"
         },
         "t": {
@@ -281,6 +392,9 @@
             "name": "Upper Public Washroom",
             "type": "roomy",
             "builder": "Shouka",
+            "decorations": [
+              {"x": 0, "y": 0, "w": 1, "h": 2, "name": "door-ns"}
+            ],
             "color": "red"
         },
         "v": {
@@ -302,8 +416,8 @@
               "<b>Tobias Beauchamps:</b> human teen, former apprentice smith in Fireshear, refugee with family."
             ],
             "decorations": [
-              {"x": 4, "y": 0, "decoration": "waterpump"},
-              {"x": 1, "y": 3, "decoration": "door-north-south-double"}
+              {"x": 4, "y": 0, "w": 1, "h": 1, "name": "waterpump"},
+              {"x": 1, "y": 3, "w": 2, "h": 2, "name": "door-ns2"}
             ],
             "color": "red"
         },
@@ -311,12 +425,21 @@
             "name": "Boathouse",
             "type": "vast",
             "builder": "Golden Vault",
+            "decorations": [
+              {"x": 2, "y": 5, "w": 2, "h": 2, "name": "door-ns2"}
+            ],
             "color": "gold"
         },
         "y": {
             "name": "Stable",
             "type": "vast",
             "builder": "Golden Vault",
+            "hirelings": [
+              "Milo, halfling refugee"
+            ],
+            "decorations": [
+              {"x": 2, "y": 5, "w": 2, "h": 2, "name": "door-ns2"}
+            ],
             "color": "gold"
         },
         "z": {
