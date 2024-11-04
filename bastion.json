@@ -265,6 +265,7 @@
       "type": "sanctuary",
       "builder": "Leocor",
       "decorations": [
+        {"x": 3, "y": 2, "w": 2, "h": 1, "name": "window-ew"},
         {"x": 0, "y": 3, "w": 1, "h": 2, "name": "door-ns"},
         {"x": 2, "y": 4, "w": 2, "h": 2, "name": "door-ns2"}
       ],
@@ -279,6 +280,7 @@
       ],
       "decorations": [
         {"x": 0, "y": 3, "w": 2, "h": 2, "name": "door-ns2"},
+        {"x": 2, "y": 0, "w": 2, "h": 2, "name": "window-ns2"},
         {"x": 1, "y": 0, "w": 2, "h": 1, "name": "door-ew"},
         {"x": 5, "y": 2, "w": 1, "h": 1, "name": "trapdoor"}
       ],
@@ -401,6 +403,10 @@
       "name": "Office",
       "type": "roomy",
       "builder": "Golden Vault",
+      "decorations": [
+        {"x": 0, "y": 3, "w": 2, "h": 2, "name": "window-ns2"},
+        {"x": 2, "y": 3, "w": 2, "h": 2, "name": "window-ns2"}
+      ],
       "color": "gold"
     },
     "w": {
@@ -416,6 +422,7 @@
         "<b>Tobias Beauchamps:</b> human teen, former apprentice smith in Fireshear, refugee with family."
       ],
       "decorations": [
+        {"x": 0, "y": 0, "w": 1, "h": 2, "name": "window-ns"},
         {"x": 4, "y": 0, "w": 1, "h": 1, "name": "waterpump"},
         {"x": 1, "y": 3, "w": 2, "h": 2, "name": "door-ns2"}
       ],
@@ -452,6 +459,7 @@
       "type": "roomy",
       "builder": "Arth",
       "decorations": [
+        {"x": 0, "y": -1, "w": 2, "h": 2, "name": "window-ns2"},
         {"x": 1, "y": 0, "w": 2, "h": 1, "name": "door-ew"}
       ],
       "color": "blue"      
@@ -461,6 +469,7 @@
       "type": "roomy",
       "builder": "Arth",
       "decorations": [
+        {"x": 0, "y": -1, "w": 2, "h": 2, "name": "window-ns2"},
         {"x": 1, "y": 1, "w": 1, "h": 2, "name": "door-ns"}
       ],
       "color": "blue"      
@@ -469,6 +478,9 @@
       "name": "Yuzzik's Dorm Room",      
       "type": "roomy",
       "builder": "Arth",
+      "decorations": [
+        {"x": 0, "y": -1, "w": 2, "h": 2, "name": "window-ns2"}
+      ],
       "color": "blue"      
     },
     "D": {
@@ -476,6 +488,8 @@
       "type": "vast",
       "builder": "Golden Vault",
       "decorations": [
+        {"x": -1, "y": 0, "w": 2, "h": 2, "name": "window-ew2"},
+        {"x": 0, "y": 1, "w": 2, "h": 2, "name": "window-ns2"},
         {"x": 1, "y": 0, "w": 2, "h": 1, "name": "door-ew"}
       ],
       "color": "gold"      
