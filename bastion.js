@@ -1,5 +1,6 @@
 // TODO: Set cell sizes from layout
 //  Hireling pictures
+//  Move width & height of decorations to SVG instead of JSON?
 
 const bastion = await (await fetch('./bastion.json')).json();
 const cellSize = 3;
