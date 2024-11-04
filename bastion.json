@@ -41,7 +41,7 @@
 "~~~~~~~~xxxxxx~~~~~~~~~~~~~~~~",
 "~~~~~~~~xxxxxx~~~~~~~~~~~~~~~~",
 "~~~~~w~~xxxxxx~~~~~~~~~~~~~~~~",
-"'wwwww''xxxxxx''''''''''''''''",
+"'wwwww''xxxxxx''''''''''--''''",
 "'wwwww''DDxxxx''''''''yyyyyy''",
 "'wwwww''DDxxxx''''''''yyyyyy''",
 "''--''''''--''''''''''yyyyyy''",
@@ -125,6 +125,7 @@
       "name": "Upper Corridor",
       "type": "free",
       "decorations": [
+        {"x": 4, "y": 0, "w": 2, "h": 1, "name": "door-ew-secret"},
         {"x": 2, "y": 4, "w": 2, "h": 2, "name": "door-ns2"},
         {"x": 5, "y": 3, "w": 1, "h": 2, "name": "door-ns"},
         {"x": 6, "y": 3, "w": 2, "h": 1, "name": "door-ew"}
@@ -266,7 +267,6 @@
       "builder": "Leocor",
       "decorations": [
         {"x": 3, "y": 2, "w": 2, "h": 1, "name": "window-ew"},
-        {"x": 0, "y": 3, "w": 1, "h": 2, "name": "door-ns"},
         {"x": 2, "y": 4, "w": 2, "h": 2, "name": "door-ns2"}
       ],
       "color": "green"
@@ -433,6 +433,8 @@
       "type": "vast",
       "builder": "Golden Vault",
       "decorations": [
+        {"x": -1, "y": 0, "w": 2, "h": 2, "name": "door-ew2"},
+        {"x": 5, "y": 0, "w": 2, "h": 2, "name": "door-ew2"},
         {"x": 2, "y": 5, "w": 2, "h": 2, "name": "door-ns2"}
       ],
       "color": "gold"
@@ -445,6 +447,7 @@
         "Milo, halfling refugee"
       ],
       "decorations": [
+        {"x": 2, "y": -1, "w": 2, "h": 2, "name": "door-ns2"},
         {"x": 2, "y": 5, "w": 2, "h": 2, "name": "door-ns2"}
       ],
       "color": "gold"
