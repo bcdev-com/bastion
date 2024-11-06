@@ -1,6 +1,6 @@
 // TODO: Set cell sizes from layout
 //  Hireling pictures
-//  Move width & height of decorations to SVG instead of JSON?
+//  Put selected floor and room in hash
 
 const bastion = await (await fetch('./bastion.json')).json();
 const cellSize = 3;
@@ -144,7 +144,6 @@ document.getElementById('bastion-name').innerText = document.title = bastion.nam
 const b = document.getElementById('bastion');
 const s = document.getElementById('floor-select');
 for(const f of bastion.floors) RenderFloor(f, b, s);
-SelectFloor(bastion.defaultFloor);
 for(const locName in bastion.locations) {
     const loc = bastion.locations[locName];
     if (loc.type && loc.decorations) {
@@ -155,8 +154,8 @@ for(const locName in bastion.locations) {
                 decoration.classList.add('decoration');
                 decoration.style.left = `${(loc.boundingBox.startCol + d.x) * cellSize}vmin`;
                 decoration.style.top = `${(loc.boundingBox.startRow + d.y) * cellSize}vmin`;
-                decoration.style.width = `${d.w * cellSize}vmin`;
-                decoration.style.height = `${d.h * cellSize}vmin`;
+                decoration.style.width = `${parseInt(decoration.dataset.width) * cellSize}vmin`;
+                decoration.style.height = `${parseInt(decoration.dataset.height) * cellSize}vmin`;
                 document.getElementById(loc.floor).appendChild(decoration);
             } else {
                 console.log(`no decoration named ${d.name} found`);
@@ -164,3 +163,4 @@ for(const locName in bastion.locations) {
         }
     }
 }
+SelectFloor(bastion.defaultFloor);
