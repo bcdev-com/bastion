@@ -41,7 +41,13 @@ function SelectRoom(roomKey, click = false) {
         let hirelings = '';
         if (loc.hirelings) {
             hirelings += '<h3>Hirelings:</h3><ul>';
-            for(const h of loc.hirelings) hirelings += `<li>${h}</li>`;
+            for(const h of loc.hirelings) {
+                hirelings += `<li><b>${h.name}:</b> ${h.description}`
+                if (h.image) {
+                    hirelings += ' [image available]'
+                }
+                hirelings += '</li>';
+            }
             hirelings += '</ul>';
         }
         roomDetails.innerHTML = `<h2>${loc.name}</h2>${desc}${size}${owner}${hirelings}${rules}`;
