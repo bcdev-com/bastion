@@ -1,16 +1,25 @@
-// TODO: Set cell sizes from layout
+// TODO: 
 //  Hireling pictures
-//  Put selected floor and room in hash
+//  And non-hireling residents
+//  Make cell sizing work when orientation changes
+//  Fancier printing support
 
+const undefinedLocation = {
+    "name": "Undefined",
+    "color": "magenta",
+    "cells": []
+};
 const bastion = await (await fetch('./bastion.json')).json();
-const cellSize = 3;
-document.documentElement.style.setProperty('--cell-size', `${cellSize}vmin`);
-document.documentElement.style.setProperty('--layout-width', `${cellSize * bastion.width}vmin`);
-document.documentElement.style.setProperty('--layout-height', `${cellSize * bastion.height}vmin`);
+const cellSize = 100/Math.max(bastion.width, bastion.height);
+const cellUnit = bastion.height > bastion.width ? 'dvh' : 'dvw';
+document.documentElement.style.setProperty('--cell-size', `${cellSize}${cellUnit}`);
+document.documentElement.style.setProperty('--layout-width', `${cellSize * bastion.width}${cellUnit}`);
+document.documentElement.style.setProperty('--layout-height', `${cellSize * bastion.height}${cellUnit}`);
 
 const roomDetails = document.getElementById('room-details');
 const rulesList = document.getElementById('rules-list').content;
 const decorationsList = document.getElementById('decorations-list').content;
+let selectedFloor = '';
 let selectedRoom = '';
 let clickedRoom = '';
 
@@ -18,18 +27,19 @@ function SelectRoom(roomKey, click = false) {
     if (click) {
         if (clickedRoom === roomKey) roomKey = '';
         clickedRoom = roomKey;
+        setTimeout(() => document.location.hash = `#${selectedFloor},${clickedRoom}`, 0);
     } else if (clickedRoom) {
             roomKey = clickedRoom;
     }
     if (selectedRoom === roomKey) return;
     if (selectedRoom) {
         roomDetails.innerHTML = '';
-        for(const cell of bastion.locations[selectedRoom].cells) 
+        for(const cell of (bastion.locations[selectedRoom] ?? undefinedLocation).cells) 
             cell.classList.remove('cell-selected')
         selectedRoom = '';
     }
     if (roomKey) {
-        const loc = bastion.locations[roomKey];
+        const loc = bastion.locations[roomKey] ?? undefinedLocation;
         const r = loc.type ? rulesList.querySelector('#room-' + loc.type) : false;
         const owner = loc.builder ? `<div><b>Builder:</b> ${loc.builder}</div>` : '';
         const size = r ? `<div><b>Size:</b> ${loc.cells.length} squares</div>` : '';
@@ -58,16 +68,20 @@ function SelectRoom(roomKey, click = false) {
 }
 
 function SelectFloor(floorId) {
-    for(const f of bastion.floors) {
-        document.getElementById(f.id).style.display = f.id === floorId ? 'block' : 'none';
-        document.getElementById(`show-${f.id}`).className = f.id === floorId ? 'active' : 'none';
+    if (selectedFloor != floorId) {
+        for(const f of bastion.floors) {
+            document.getElementById(f.id).style.display = f.id === floorId ? 'block' : 'none';
+            document.getElementById(`show-${f.id}`).className = f.id === floorId ? 'active' : 'none';
+        }
+        selectedFloor = floorId;
+        SelectRoom('', true);
     }
-    SelectRoom('', true);
 }
 
 function RenderFloor(floor, bastionElement, navElement) {
     function GetKey(f, r, c) {
-        if (r < 0 || r >= bastion.height || c < 0 || c >= bastion.width)
+        // if (r < 0 || r >= bastion.height || c < 0 || c >= bastion.width)
+        if (r < 0 || r >= f.grid.length || c < 0 || c >= f.grid[r].length)
             return '\0';
         else
             return f.grid[r][c];
@@ -102,7 +116,7 @@ function RenderFloor(floor, bastionElement, navElement) {
             const td = document.createElement('td');
             const key = GetKey(floor, row, col);
             td.dataset.location = key;
-            const loc = bastion.locations[key];
+            const loc = bastion.locations[key] ?? undefinedLocation;
             if (loc.type) {
                 if (loc.floor && loc.floor !== floor.id)
                     console.error(`Location ${loc.name} is used on both floor ${loc.floor} and ${floor.id}`);
@@ -158,10 +172,10 @@ for(const locName in bastion.locations) {
             if (n) {
                 const decoration = n.cloneNode(true);
                 decoration.classList.add('decoration');
-                decoration.style.left = `${(loc.boundingBox.startCol + d.x) * cellSize}vmin`;
-                decoration.style.top = `${(loc.boundingBox.startRow + d.y) * cellSize}vmin`;
-                decoration.style.width = `${parseInt(decoration.dataset.width) * cellSize}vmin`;
-                decoration.style.height = `${parseInt(decoration.dataset.height) * cellSize}vmin`;
+                decoration.style.left = `${(loc.boundingBox.startCol + d.x) * cellSize}${cellUnit}`;
+                decoration.style.top = `${(loc.boundingBox.startRow + d.y) * cellSize}${cellUnit}`;
+                decoration.style.width = `${parseInt(decoration.dataset.width) * cellSize}${cellUnit}`;
+                decoration.style.height = `${parseInt(decoration.dataset.height) * cellSize}${cellUnit}`;
                 document.getElementById(loc.floor).appendChild(decoration);
             } else {
                 console.log(`no decoration named ${d.name} found`);
@@ -169,4 +183,19 @@ for(const locName in bastion.locations) {
         }
     }
 }
-SelectFloor(bastion.defaultFloor);
+
+function OnHashChange(e) {
+    const h = document.location.hash;
+    if (h.length > 1) {
+        const parts = h.substring(1).split(',');
+        if (parts.length == 2) {
+            if (parts[0] !== selectedFloor) SelectFloor(parts[0]);
+            if (parts[1] !== clickedRoom) SelectRoom(parts[1], true);
+            return;
+        }
+    }
+    SelectFloor(bastion.defaultFloor);
+    document.location.hash = '';
+}
+OnHashChange();
+window.addEventListener('hashchange', OnHashChange);

@@ -1,11 +1,15 @@
 :root {
-    --cell-size: 2vmin;
-    --layout-width: 60vmin;
-    --layout-height: 48vmin;
+    --cell-size: 1vmin;
+    --layout-width: 50vmin;
+    --layout-height: 50vmin;
 }
 *, *::before, *::after {
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+html, body {
+    padding: 0;
+    margin: 0;
 }
 h1, h2, h3 {
     font-weight: bold;
@@ -15,6 +19,7 @@ h1, h2, h3 {
 }
 h1 {
     font-size: 2rem;
+    margin-left: 0.75rem;
     margin-bottom: 0.5rem;
 }
 h2 { 
@@ -46,12 +51,14 @@ ul {
     height: var(--layout-height);
 }
 #room-details {
+    width: var(--layout-width);
     margin-top: 1rem;
+    padding: 0 0.5rem;
 }
 #rules {
-    width: var(--layout-width);
+    width: calc(var(--layout-width) - 1rem);
     padding: 0.25rem;
-    margin-top: 1rem;
+    margin: 0.5rem 0;
     background: lightgray;
     border: 1px solid black;
 }
